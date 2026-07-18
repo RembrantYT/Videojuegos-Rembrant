@@ -12,5 +12,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+    // Bloqueo de atajos de teclado para inspección
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' || 
+            (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i' || e.key === 'j'))
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Bloqueo de clic derecho
+    document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
   </body>
 </html>
